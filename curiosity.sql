@@ -11,7 +11,7 @@ CREATE TABLE IF NOT EXISTS `species`(
     `id` INT(3) NOT NULL
     `name` VARCHAR(25) NOT NULL
     PRIMARY KEY(`id`)
-)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 --
 -- `characters` table structure
 --
@@ -22,13 +22,24 @@ CREATE TABLE IF NOT EXISTS `characters`(
     `speciesId` INT(3) NOT NULL
     `description` LONGTEXT DEFAULT NULL
     `deaths` INT(5) DEFAULT NULL
+    `originId` INT(3) DEFAULT NULL
     PRIMARY KEY(`id`)
-)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 --
--- species foreign key
+-- `origin` table structure
+--
+CREATE TABLE IF NOT EXISTS `origin`(
+    `id` INT(3)
+    `name` VARCHAR(25)
+    `mediaGenre` VARCHAR(25)
+    PRIMARY KEY(`id`)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4
+--
+-- foreign keys
 --
 ALTER TABLE `characters`
-ADD CONSTRAINT `characterSpecies` FOREIGN KEY (`speciesId`) REFERENCES `species`(`id`);
+ADD CONSTRAINT `characterSpecies` FOREIGN KEY (`speciesId`) REFERENCES `species`(`id`),
+ADD CONSTRAINT `characterOrigin` FOREIGN KEY (`originId`) REFERENCES `origin`(`id`);
 --
 -- users creation
 --
