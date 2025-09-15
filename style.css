@@ -1,0 +1,14 @@
+h1{
+    color: aqua;
+}
+body{
+    color: white;
+    background-color: darkslategray;
+}
+html{
+    background-color: darkslategray;
+}
+a{
+    color: aqua;
+    text-decoration: none;
+}
