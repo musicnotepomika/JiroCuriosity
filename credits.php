@@ -8,12 +8,7 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <header>
-            <h1>Curiosity</h1>
-            <nav class="menu">
-                <a href="index.html">Home</a>|<a href="about.html">About Curiosity</a>|<a href="credits.html">Credits</a>
-            </nav>
-        </header>
+        <?php include('header.php'); ?>
         <h2>Credits</h2>
         <p>My original characters are mentioned in this AU but none of the Curiosity project creations are mine.</p>
         <p>Inanimate Insanity belongs to <a href="https://www.youtube.com/animationepic">AnimationEpic</a></p>

@@ -8,12 +8,7 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <header>
-            <h1>Curiosity</h1>
-            <nav class="menu">
-                <a href="index.html">Home</a>|<a href="about.html">About Curiosity</a>|<a href="credits.html">Credits</a>
-            </nav>
-        </header>
+        <?php include('header.php'); ?>
         <h2>Home page</h2>
         <p>Welcome to the Curiosity Project website.</p><br>
         <p>This website is still under construction.</p>

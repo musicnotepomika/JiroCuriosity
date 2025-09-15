@@ -8,12 +8,7 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <header>
-            <h1>Curiosity</h1>
-            <nav class="menu">
-                <a href="index.html">Home</a>|<a href="about.html">About Curiosity</a>|<a href="credits.html">Credits</a>
-            </nav>
-        </header>
+        <?php include('header.php'); ?>
         <h2>About Curiosity</h2>
         <h3>History</h3>
         <p>The Curiosity Project is a project created by Jiro Segoe on October 12th 2024.</p>
