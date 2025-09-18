@@ -1,46 +1,84 @@
+-- phpMyAdmin SQL Dump
+-- version 5.2.1deb1+deb12u1
+-- https://www.phpmyadmin.net/
 --
--- Database dbCuriosity
+-- Hôte : localhost:3306
+-- Généré le : jeu. 18 sep. 2025 à 17:48
+-- Version du serveur : 10.11.14-MariaDB-0+deb12u2
+-- Version de PHP : 8.2.29
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
 --
-DROP DATABASE IF EXISTS dbCuriosity;
-CREATE DATABASE dbCuriosity;
-USE dbCuriosity;
----------------------------
+-- Base de données : `dbCuriosity`
 --
--- species table structure
+CREATE DATABASE IF NOT EXISTS `dbCuriosity` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `dbCuriosity`;
+
+-- --------------------------------------------------------
+
 --
-CREATE TABLE IF NOT EXISTS species(
-    id INT(3) NOT NULL,
-    name VARCHAR(25) NOT NULL,
-    PRIMARY KEY(id)
-)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+-- Structure de la table `characters`
 --
--- characters table structure
+
+CREATE TABLE IF NOT EXISTS `characters` (
+  `id` varchar(30) NOT NULL,
+  `firstName` varchar(25) NOT NULL,
+  `lastName` varchar(25) NOT NULL,
+  `gender` varchar(3) NOT NULL,
+  `speciesId` int(3) NOT NULL,
+  `description` longtext NOT NULL,
+  `deaths` int(5) NOT NULL,
+  `originId` int(3) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `characterSpecies` (`speciesId`),
+  KEY `characterOrigin` (`originId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
 --
-CREATE TABLE IF NOT EXISTS characters(
-    id VARCHAR(30) NOT NULL,
-    fisrtName VARCHAR(25) DEFAULT NULL,
-    lastName VARCHAR(25) DEFAULT NULL,
-    speciesId INT(3) NOT NULL,
-    description LONGTEXT DEFAULT NULL,
-    deaths INT(5) DEFAULT NULL,
-    originId INT(3) DEFAULT NULL,
-    PRIMARY KEY(id)
-)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+-- Structure de la table `origin`
 --
--- origin table structure
+
+CREATE TABLE IF NOT EXISTS `origin` (
+  `id` int(3) NOT NULL AUTO_INCREMENT,
+  `name` varchar(25) NOT NULL,
+  `mediaGenre` varchar(25) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
 --
-CREATE TABLE IF NOT EXISTS origin(
-    id INT(3),
-    name VARCHAR(25),
-    mediaGenre VARCHAR(25),
-    PRIMARY KEY(id)
-)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4
+-- Structure de la table `species`
 --
--- foreign keys
+
+CREATE TABLE IF NOT EXISTS `species` (
+  `id` int(3) NOT NULL AUTO_INCREMENT,
+  `name` varchar(25) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
 --
-ALTER TABLE characters
-ADD CONSTRAINT characterSpecies FOREIGN KEY (speciesId) REFERENCES species(id),
-ADD CONSTRAINT characterOrigin FOREIGN KEY (originId) REFERENCES origin(id);
+-- Contraintes pour les tables déchargées
+--
+
+--
+-- Contraintes pour la table `characters`
+--
+ALTER TABLE `characters`
+  ADD CONSTRAINT `characterOrigin` FOREIGN KEY (`originId`) REFERENCES `origin` (`id`),
+  ADD CONSTRAINT `characterSpecies` FOREIGN KEY (`speciesId`) REFERENCES `species` (`id`);
+COMMIT;
 --
 -- users creation
 --
