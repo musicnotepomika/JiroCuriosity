@@ -4,10 +4,11 @@ h1{
 body{
     color: white;
     margin: 1em;
+    background: transparent;
 }
 html{
     background-color: darkslategray;
-    background-image: url("/curiosity/img/Untitled989_20250415185451.png");
+    background-image: url("img/Untitled989_20250415185451.png");
     background-position: center;
     background-size: auto;
 }
@@ -16,5 +17,5 @@ a{
     text-decoration: none;
 }
 .infoPic{
-    image-resolution: 2em;
+    width: 20em;
 }

@@ -15,7 +15,7 @@
                 <option value="">--Please choose a character--</option>
             </select>
         </form>
-        <img src="/curiosity/img/Untitled989_20250415185451.png" alt="" class="infoPic">
+        <img src="img/Untitled989_20250415185451.png" alt="" class="infoPic">
         <h2>Name of the character</h2>
         <h2>Gender</h2>
         <h2>Species</h2>
