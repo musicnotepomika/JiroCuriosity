@@ -21,7 +21,7 @@
         <p>The CRC is connected to a computer who controls the database in order to be able to create, update or delete a character. The description of the character has to be accurate, including appearance, personality and what the characters like or dislike.</p>
         <p>When a character is created, it will come out of the machine, but with the downside of the character being naked after creation and recovery. We have to be sure to have clothes near the CRC to dress the character except if it's an object or an animal.</p>
         <p>Every time a character dies, a notification gets sent to the owner of the CRC to recover it there.</p>
-        <p>Notice : if a character is corrupted by something harmful or turns Twisted, the character has to be executed and recovered back to the CRC.</p>
+        <div class="notice"><p>Notice : if a character is corrupted by something harmful or turns Twisted, the character has to be executed and recovered back to the CRC.</p></div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     </body>
 </html>
