@@ -10,19 +10,21 @@
     <body>
         <?php include("header.php");
         require("characters.php");
-        $characters=getAll();?>
+        $characters=getAll();
+        var_dump($characters)?>
+
         <h2>Placeholder</h2>
         <form action="#" method="post">
             <select name="characterSelect" id="charSelect">
                 <option value="">--Please choose a character--</option>
                 <?php foreach($characters as $character): ?>
                 <option value="<?php htmlspecialchars($character['character.id'])?>">
-                    <?php htmlspecialchars($character['character.id']) ?>
+                    <?php htmlspecialchars($character['firstName']) ?>
                 </option>
                 <?php endforeach ?>
             </select>
         </form>
-        <img src="<?php htmlspecialchars($character['imageURL'])?>" alt="" class="infoPic">
+        <img src="img/<?php htmlspecialchars($character['imageURL'])?>" alt="" class="infoPic">
         <h2>Name : <?php htmlspecialchars($character['firstName'])?> <?php htmlspecialchars($character['lastName']) ?></h2>
         <h2>Gender : <?php htmlspecialchars($character['gender'])?></h2>
         <h2>Species : <?php htmlspecialchars($character['species.name'])?></h2>

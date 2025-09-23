@@ -1,6 +1,6 @@
 <?php
 function connect(){
-    $dsn='mysql:host=192.168.100.100;dbname=dbcuriosity;charset=utf8mb4';
+    $dsn='mysql:host=localhost;dbname=dbCuriosity;charset=utf8mb4';
     $user='jiro';
     $pass='jsegoe21';
 
