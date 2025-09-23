@@ -38,6 +38,7 @@ CREATE TABLE IF NOT EXISTS `characters` (
   `description` longtext NOT NULL,
   `deaths` int(5) NOT NULL,
   `originId` int(3) NOT NULL,
+  `imageURL` varchar(100) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `characterSpecies` (`speciesId`),
   KEY `characterOrigin` (`originId`)

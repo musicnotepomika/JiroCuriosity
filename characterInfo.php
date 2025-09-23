@@ -8,17 +8,24 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <?php include("header.php");?>
+        <?php include("header.php");
+        require("characters.php");
+        $characters=getAll();?>
         <h2>Placeholder</h2>
         <form action="#" method="post">
             <select name="characterSelect" id="charSelect">
                 <option value="">--Please choose a character--</option>
+                <?php foreach($characters as $character): ?>
+                <option value="<?php htmlspecialchars($character['character.id'])?>">
+                    <?php htmlspecialchars($character['character.id']) ?>
+                </option>
+                <?php endforeach ?>
             </select>
         </form>
-        <img src="img/Untitled989_20250415185451.png" alt="" class="infoPic">
-        <h2>Name of the character</h2>
-        <h2>Gender</h2>
-        <h2>Species</h2>
-        <p>Here's the description of the chosen character. Script is still under construction.</p>
+        <img src="<?php htmlspecialchars($character['imageURL'])?>" alt="" class="infoPic">
+        <h2>Name : <?php htmlspecialchars($character['firstName'])?> <?php htmlspecialchars($character['lastName']) ?></h2>
+        <h2>Gender : <?php htmlspecialchars($character['gender'])?></h2>
+        <h2>Species : <?php htmlspecialchars($character['species.name'])?></h2>
+        <p><?php htmlspecialchars($character['description'])?></p>
     </body>
 </html>
