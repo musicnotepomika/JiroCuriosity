@@ -2,6 +2,6 @@
 require_once "connect.php";
 function getAll(){
     $db=connect();
-    $stmt=$db->query("SELECT * FROM characters INNER JOIN species ON species.id=characters.speciesId");
+    $stmt=$db->query("SELECT characters.id AS characterId, firstName, lastName, gender, description, deaths, imageURL, name FROM characters INNER JOIN species ON species.id=characters.speciesId");
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
