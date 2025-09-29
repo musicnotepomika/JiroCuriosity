@@ -12,22 +12,22 @@
         require("characters.php");
         $characters=getAll();?>
 
-        <h2><?php htmlspecialchars($characters['characterId']) ?></h2>
+        <h2><?= htmlspecialchars($character['characterId']) ?></h2>
         <form action="#" method="post">
             <select name="characterSelect" id="charSelect">
                 <option value="">--Please choose a character--</option>
                 <?php foreach($characters as $character): ?>
-                <option value="<?php htmlspecialchars($character['characterId'])?>">
-                    <?php htmlspecialchars($character['characterId']) ?>
+                <option value="(<?= htmlspecialchars($character['characterId'])?>">
+                    <?= htmlspecialchars($character['characterId']) ?>
                 </option>
                 <?php endforeach ?>
             </select>
             <button type="submit">Select</button>
         </form>
-        <img src="img/<?php htmlspecialchars($character['imageURL'])?>" alt="" class="infoPic">
-        <h2>Name : <?php htmlspecialchars($character['firstName'])?> <?php htmlspecialchars($character['lastName']) ?></h2>
-        <h2>Gender : <?php htmlspecialchars($character['gender'])?></h2>
-        <h2>Species : <?php htmlspecialchars($character['name'])?></h2>
-        <p><?php htmlspecialchars($character['description'])?></p>
+        <img src="img/<?= htmlspecialchars($character['imageURL'])?>" alt="" class="infoPic">
+        <h2>Name : <?= htmlspecialchars($character['firstName'])?> <?=htmlspecialchars($character['lastName'])?></h2>
+        <h2>Gender : <?= htmlspecialchars($character['gender'])?></h2>
+        <h2>Species : <?= htmlspecialchars($character['name'])?></h2>
+        <p><?= htmlspecialchars($character['description'])?></p>
     </body>
 </html>
