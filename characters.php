@@ -8,6 +8,6 @@ function getAll(){
 
 function getSelected($selectedId){
     $db=connect();
-    $stmt=$db->query("SELECT characters.id AS characterId, firstName, lastName, gender, description, deaths, imageURL, name FROM characters INNER JOIN species ON species.id=characters.speciesId WHERE characterId=",$selectedId);
+    $stmt=$db->query("SELECT characters.id AS characterId, firstName, lastName, gender, description, deaths, imageURL, name FROM characters INNER JOIN species ON species.id=characters.speciesId WHERE characterId=".$selectedId);
     return $stmt->fetch(PDO::FETCH_ASSOC);
 }
